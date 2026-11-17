@@ -3,793 +3,974 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isac Ghilardi | Desenvolvedor &amp; Estudante de ADS</title>
-  <meta name="description" content="Portfólio de Isac Ghilardi — Estudante de Análise e Desenvolvimento de Sistemas (Java, C#, C, Laravel, MySQL)." />
+  <title>Isac Ghilardi · Sua bússola para contratar um dev em formação</title>
+  <meta name="description" content="Portfólio interativo de Isac Ghilardi (@isacGhilardi) — Estudante de Análise e Desenvolvimento de Sistemas (Java, C#, C, Laravel, MySQL)." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f19;
-      --bg-elevated: #111827;
-      --bg-card: rgba(17, 24, 39, 0.78);
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border: rgba(255, 255, 255, 0.09);
-      --primary: #38bdf8;
-      --primary-glow: rgba(56, 189, 248, 0.25);
-      --accent: #10b981;
-      --accent-secondary: #818cf8;
-      --terminal-bg: #070a12;
-      --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      --bg: #09090b;
+      --bg-soft: #111114;
+      --bg-card: #141418;
+      --bg-card-hover: #1a1a20;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --border: #27272a;
+      --border-strong: #3f3f46;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --accent-border: rgba(34, 197, 94, 0.35);
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(56, 189, 248, 0.12);
+      --radius: 16px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
 
     [data-theme="light"] {
-      --bg: #f8fafc;
-      --bg-elevated: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.88);
-      --text: #0f172a;
-      --text-muted: #475569;
-      --border: rgba(15, 23, 42, 0.1);
-      --primary: #0284c7;
-      --primary-glow: rgba(2, 132, 199, 0.16);
-      --accent: #059669;
-      --accent-secondary: #4f46e5;
-      --terminal-bg: #0f172a;
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --bg: #fafafa;
+      --bg-soft: #f4f4f5;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --text: #09090b;
+      --text-muted: #52525b;
+      --text-dim: #71717a;
+      --border: #e4e4e7;
+      --border-strong: #d4d4d8;
+      --accent: #16a34a;
+      --accent-soft: rgba(22, 163, 74, 0.1);
+      --accent-border: rgba(22, 163, 74, 0.32);
+      --cyan: #0284c7;
+      --cyan-soft: rgba(2, 132, 199, 0.1);
+      --shadow: 0 18px 40px rgba(9, 9, 11, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
-    code, pre, .mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
+    .mono, code { font-family: 'JetBrains Mono', monospace; }
 
-    /* Subtle Tech Grid Background */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(to right, var(--border) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-      background-size: 46px 46px;
-      mask-image: radial-gradient(ellipse 80% 65% at 50% 10%, #000 40%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .bg-glow {
-      position: fixed;
-      top: -180px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 780px;
-      height: 460px;
-      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-      filter: blur(60px);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* Container */
     .container {
-      width: min(1140px, 92%);
+      width: min(1160px, 92%);
       margin: 0 auto;
     }
 
-    /* Navbar */
+    /* Subtle top radial glow */
+    .top-glow {
+      position: fixed;
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 460px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.13) 0%, rgba(56, 189, 248, 0.06) 45%, transparent 72%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Header / Navbar estilo Bora na Tech */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
       gap: 1rem;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
       gap: 0.65rem;
       text-decoration: none;
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.05rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 12px var(--primary);
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 0.95rem;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
+    .logo-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.18rem 0.5rem;
+      border-radius: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    .nav-actions {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.35rem;
     }
 
-    .icon-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
       padding: 0.45rem 0.75rem;
-      border-radius: 10px;
+      border-radius: 8px;
+      transition: 0.18s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--bg-card);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-ghost {
+      padding: 0.45rem 0.75rem;
+      border-radius: 9px;
       border: 1px solid var(--border);
       background: var(--bg-card);
       color: var(--text);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
+      text-decoration: none;
+      transition: 0.18s;
     }
 
-    .icon-btn:hover {
-      border-color: var(--primary);
+    .btn-ghost:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+    }
+
+    .btn-accent {
+      padding: 0.5rem 0.95rem;
+      border-radius: 9px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #052e16;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.18s;
+    }
+
+    .btn-accent:hover {
+      filter: brightness(1.08);
       transform: translateY(-1px);
     }
 
-    /* Hero */
-    .hero {
-      padding: 4.5rem 0 3.5rem;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2.5rem;
-      align-items: center;
+    /* Marquee Strip */
+    .marquee-wrap {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-soft);
+      overflow: hidden;
+      padding: 0.6rem 0;
     }
 
-    .status-pill {
+    .marquee-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 1.25rem;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
 
-    .pulse {
+    .marquee-item strong { color: var(--text); }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .compass-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+
+    .compass-pill {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.3rem 0.65rem;
+      border-radius: 8px;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: 0.18s;
+    }
+
+    .compass-pill.active, .compass-pill:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .pulse-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
       animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 9px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      line-height: 1.12;
+      font-size: clamp(2.2rem, 4.4vw, 3.6rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.15rem;
     }
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero h1 span {
+      color: var(--accent);
     }
 
-    .hero-sub {
+    .hero-lead {
       font-size: 1.08rem;
       color: var(--text-muted);
       max-width: 58ch;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.65rem;
     }
 
-    .typing-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.95rem;
-      color: var(--primary);
-      margin-bottom: 1.75rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 1.05em;
-      background: var(--primary);
-      animation: blink 1s step-end infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .hero-cta {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 2rem;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.78rem 1.35rem;
-      border-radius: 12px;
-      font-weight: 600;
+    .btn-lg {
+      padding: 0.82rem 1.35rem;
       font-size: 0.94rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: all 0.22s ease;
+      border-radius: 11px;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--accent-secondary));
-      color: #fff;
-      box-shadow: 0 8px 24px var(--primary-glow);
+    /* Specialty Quick Cards (Estilo "Front-end ▶ React, Vue" do Bora na Tech) */
+    .areas-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 0.75rem;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-    }
-
-    .btn-secondary {
-      background: var(--bg-card);
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* Profile Card in Hero */
-    .profile-card {
+    .area-chip {
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: 0.2s;
+      color: var(--text);
     }
 
-    .profile-header {
+    .area-chip:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .area-chip-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .area-chip-sub {
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Profile Bento Card on Hero Right */
+    .dev-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .dev-card-top {
       display: flex;
       align-items: center;
-      gap: 1.15rem;
-      margin-bottom: 1.35rem;
+      gap: 1rem;
+      padding-bottom: 1.15rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.15rem;
     }
 
-    .avatar {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
+    .dev-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
       object-fit: cover;
-      border: 2px solid var(--primary);
-      box-shadow: 0 0 24px var(--primary-glow);
+      border: 1px solid var(--accent-border);
     }
 
-    .profile-meta h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
+    .dev-meta h2 { font-size: 1.12rem; font-weight: 800; }
+    .dev-meta .handle { font-size: 0.82rem; color: var(--accent); }
+    .dev-meta .loc { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-    .profile-meta .handle {
-      color: var(--primary);
-      font-size: 0.88rem;
-    }
-
-    .profile-meta .location {
-      color: var(--text-muted);
-      font-size: 0.84rem;
-      margin-top: 0.25rem;
-    }
-
-    .stats-grid {
+    .mini-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
     }
 
-    .stat-box {
-      background: color-mix(in srgb, var(--bg) 65%, transparent);
+    .mini-stat {
+      background: var(--bg-soft);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 0.75rem 0.5rem;
+      border-radius: 10px;
+      padding: 0.65rem 0.5rem;
       text-align: center;
     }
 
-    .stat-value {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-    }
+    .mini-stat strong { display: block; font-size: 1.15rem; font-weight: 800; }
+    .mini-stat span { font-size: 0.72rem; color: var(--text-muted); }
 
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .achievements {
+    .tag-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
       margin-bottom: 1rem;
     }
 
-    .badge {
-      font-size: 0.76rem;
-      padding: 0.3rem 0.65rem;
+    .pill-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary) 10%, transparent);
-      color: var(--text);
+      background: var(--bg-soft);
+      color: var(--text-muted);
     }
 
-    /* Sections */
-    section {
-      padding: 4rem 0;
+    .pill-tag.green {
+      border-color: var(--accent-border);
+      background: var(--accent-soft);
+      color: var(--accent);
     }
 
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 1rem;
+    /* Section Headers */
+    section { padding: 4rem 0; }
+
+    .section-header {
       margin-bottom: 2rem;
     }
 
-    .section-tag {
+    .eyebrow {
       display: inline-block;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--primary);
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.65rem, 3vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 62ch;
+      font-size: 0.98rem;
+    }
+
+    /* Section "Talvez isso seja você / A virada" */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pain-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+    }
+
+    .pain-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pain-card h3 {
+      font-size: 1.02rem;
       margin-bottom: 0.4rem;
     }
 
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
+    .pain-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
     }
 
-    /* About & Interactive Terminal */
-    .about-grid {
+    .turn-banner {
+      background: linear-gradient(135deg, var(--accent-soft), var(--cyan-soft));
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    /* 4-Step Interactive Journey (Estilo "Um caminho, quatro passos") */
+    .steps-layout {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 2rem;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.5rem;
       align-items: stretch;
     }
 
-    .card {
+    .steps-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .step-btn {
+      width: 100%;
+      text-align: left;
+      padding: 1.1rem 1.25rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: 0.2s;
+    }
+
+    .step-btn:hover { border-color: var(--border-strong); }
+
+    .step-btn.active {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 0 1px var(--accent-border);
+    }
+
+    .step-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .step-title { font-size: 1rem; font-weight: 700; }
+    .step-desc { font-size: 0.84rem; color: var(--text-muted); }
+
+    .step-preview {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 1.75rem;
-      box-shadow: var(--shadow);
-    }
-
-    .about-list {
-      list-style: none;
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1.25rem;
-    }
-
-    .about-list li {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      color: var(--text-muted);
-      font-size: 0.96rem;
-    }
-
-    .about-list strong {
-      color: var(--text);
-    }
-
-    /* Terminal */
-    .terminal {
-      background: var(--terminal-bg);
-      color: #e2e8f0;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow);
-      min-height: 330px;
-    }
-
-    .terminal-bar {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.7rem 1rem;
-      background: rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.78rem;
-      color: #94a3b8;
-    }
-
-    .dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dots span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-    .dots span:nth-child(1) { background: #ef4444; }
-    .dots span:nth-child(2) { background: #f59e0b; }
-    .dots span:nth-child(3) { background: #10b981; }
-
-    .terminal-body {
-      padding: 1rem 1.15rem;
-      flex: 1;
-      overflow-y: auto;
-      max-height: 260px;
-      font-size: 0.85rem;
-      line-height: 1.55;
-    }
-
-    .term-line { margin-bottom: 0.45rem; }
-    .term-cmd { color: #38bdf8; }
-    .term-out { color: #cbd5e1; white-space: pre-wrap; }
-    .term-accent { color: #34d399; }
-
-    .terminal-quick {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      padding: 0.5rem 1rem 0;
-    }
-
-    .quick-chip {
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #7dd3fc;
-      border-radius: 6px;
-      padding: 0.2rem 0.55rem;
-      font-size: 0.74rem;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-
-    .quick-chip:hover {
-      background: rgba(56, 189, 248, 0.25);
-    }
-
-    .terminal-input-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.15rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .terminal-input-row span {
-      color: #34d399;
-      font-size: 0.86rem;
-    }
-
-    .terminal-input-row input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #f8fafc;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.86rem;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.25rem;
     }
 
-    .skill-cat h3 {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .step-preview-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .skill-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.48rem 0.8rem;
-      border-radius: 10px;
-      background: color-mix(in srgb, var(--bg) 60%, transparent);
+    .preview-tile {
+      background: var(--bg-soft);
       border: 1px solid var(--border);
-      font-size: 0.86rem;
-      font-weight: 500;
-      transition: all 0.2s;
+      border-radius: 12px;
+      padding: 0.9rem;
     }
 
-    .skill-pill:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
+    .preview-tile strong { display: block; font-size: 0.88rem; margin-bottom: 0.2rem; }
+    .preview-tile span { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Numbers Strip (Estilo "A plataforma em números") */
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
     }
 
-    /* Projects */
-    .projects-controls {
+    .number-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+    }
+
+    .number-big {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .number-label { font-weight: 700; font-size: 1rem; }
+    .number-sub { font-size: 0.84rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* Bento Grid Projects (Estilo "Tudo pra começar num lugar só") */
+    .controls-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .filter-group {
+    .filter-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
-    .filter-btn {
-      padding: 0.45rem 0.9rem;
+    .filter-pill {
+      padding: 0.42rem 0.85rem;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--bg-card);
       color: var(--text-muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: 0.18s;
     }
 
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--accent);
+      color: #052e16;
+      border-color: var(--accent);
     }
 
-    .search-box {
-      padding: 0.55rem 0.95rem;
+    .search-input {
+      padding: 0.52rem 0.9rem;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--bg-card);
       color: var(--text);
-      font-size: 0.88rem;
-      min-width: 230px;
+      font-size: 0.86rem;
+      min-width: 220px;
       outline: none;
     }
 
-    .search-box:focus {
-      border-color: var(--primary);
-    }
+    .search-input:focus { border-color: var(--accent); }
 
-    .projects-grid {
+    .bento-projects {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+      gap: 1rem;
     }
 
-    .project-card {
+    .bento-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.4rem;
+      border-radius: var(--radius);
+      padding: 1.35rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1rem;
-      transition: all 0.25s ease;
+      transition: 0.2s;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      box-shadow: var(--shadow);
+    .bento-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
     }
 
-    .project-top {
+    .bento-head {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 0.75rem;
+      margin-bottom: 0.55rem;
     }
 
-    .project-lang {
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: 8px;
-      background: color-mix(in srgb, var(--primary) 15%, transparent);
-      color: var(--primary);
-      white-space: nowrap;
-    }
-
-    .project-title {
-      font-size: 1.08rem;
+    .bento-title {
+      font-size: 1.04rem;
       font-weight: 700;
       word-break: break-word;
     }
 
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.5;
+    .badge-free {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.22rem 0.55rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+      white-space: nowrap;
     }
 
-    .project-footer {
+    .bento-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .bento-foot {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 0.75rem;
+      padding-top: 0.8rem;
       border-top: 1px solid var(--border);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .project-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .mini-btn {
-      padding: 0.35rem 0.7rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
+    .open-link {
       color: var(--text);
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.82rem;
       text-decoration: none;
+      background: transparent;
+      border: none;
       cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .mini-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .social-links {
-      display: grid;
-      gap: 0.8rem;
-      margin-top: 1.25rem;
-    }
-
-    .social-item {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 1rem;
+      gap: 0.25rem;
+    }
+
+    .open-link:hover { color: var(--accent); }
+
+    /* Interview Simulator (Estilo "Simulador de Entrevista" do Bora na Tech) */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.25rem;
+    }
+
+    .sim-questions {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .sim-q-btn {
+      text-align: left;
+      padding: 0.95rem 1.1rem;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--bg) 55%, transparent);
-      text-decoration: none;
+      background: var(--bg-card);
       color: var(--text);
-      transition: 0.2s;
-    }
-
-    .social-item:hover {
-      border-color: var(--primary);
-      transform: translateX(4px);
-    }
-
-    .form-group {
-      display: grid;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .form-group label {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: 0.18s;
+    }
+
+    .sim-q-btn:hover, .sim-q-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .sim-chat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 290px;
+    }
+
+    .sim-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .sim-bubble {
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sim-bubble.recruiter {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
       color: var(--text-muted);
     }
 
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 0.9rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--bg) 70%, transparent);
+    .sim-bubble.isac {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
       color: var(--text);
-      font-family: inherit;
-      font-size: 0.92rem;
-      outline: none;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--primary);
+    /* Terminal Section estilo "boranatech ~ terminal" */
+    .terminal-showcase {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #070709;
+      color: #e4e4e7;
+      box-shadow: var(--shadow);
+    }
+
+    .binary-strip {
+      padding: 0.55rem 1rem;
+      border-bottom: 1px solid #27272a;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: rgba(34, 197, 94, 0.45);
+      overflow: hidden;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .term-split {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 330px;
+    }
+
+    .term-sidebar {
+      border-right: 1px solid #27272a;
+      padding: 1.1rem;
+      background: #0b0b0e;
+    }
+
+    .term-cat {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #71717a;
+      margin: 0.9rem 0 0.45rem;
+    }
+
+    .term-cat:first-child { margin-top: 0; }
+
+    .term-cmd-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.38rem 0.6rem;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: #a1a1aa;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .term-cmd-btn:hover {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+    }
+
+    .term-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .term-topbar {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid #27272a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #a1a1aa;
+    }
+
+    .term-dots { display: flex; gap: 6px; }
+    .term-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .term-dots span:nth-child(1) { background: #ef4444; }
+    .term-dots span:nth-child(2) { background: #eab308; }
+    .term-dots span:nth-child(3) { background: #22c55e; }
+
+    .term-output {
+      flex: 1;
+      padding: 1.15rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      max-height: 250px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .term-prompt-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.15rem;
+      border-top: 1px solid #27272a;
+      background: #0b0b0e;
+    }
+
+    .term-prompt-row input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fafafa;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+    }
+
+    /* Footer Multi-column estilo Bora na Tech */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-col a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      margin-bottom: 0.45rem;
+      transition: 0.15s;
+    }
+
+    .footer-col a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
     }
 
     /* Modal */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -797,437 +978,523 @@
       padding: 1rem;
       z-index: 100;
     }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
+    .modal-backdrop.open { display: flex; }
     .modal-box {
-      width: min(560px, 100%);
-      background: var(--bg-elevated);
+      width: min(540px, 100%);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 18px;
       padding: 1.75rem;
-      box-shadow: var(--shadow);
       position: relative;
+      box-shadow: var(--shadow);
     }
-
     .modal-close {
       position: absolute;
       top: 1rem;
       right: 1rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       border: 1px solid var(--border);
-      background: transparent;
+      background: var(--bg-soft);
       color: var(--text);
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
       cursor: pointer;
-      font-size: 1.1rem;
     }
 
-    /* Toast */
     .toast {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--bg-elevated);
-      color: var(--text);
+      bottom: 22px;
+      right: 22px;
+      background: var(--bg-card);
       border: 1px solid var(--accent);
-      padding: 0.8rem 1.2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      font-size: 0.88rem;
+      color: var(--text);
+      padding: 0.75rem 1.15rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
       font-weight: 600;
+      box-shadow: var(--shadow);
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(10px);
       pointer-events: none;
-      transition: all 0.25s ease;
+      transition: 0.25s;
       z-index: 120;
     }
+    .toast.show { opacity: 1; transform: translateY(0); }
 
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero, .about-grid, .contact-grid {
+    @media (max-width: 920px) {
+      .hero-grid, .pain-grid, .steps-layout, .numbers-grid, .sim-grid, .term-split, .footer-grid {
         grid-template-columns: 1fr;
       }
-      nav {
-        display: none;
-      }
+      .nav-links { display: none; }
+      .term-sidebar { border-right: none; border-bottom: 1px solid #27272a; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-glow"></div>
+  <div class="top-glow"></div>
 
-  <!-- Navbar -->
+  <!-- Header -->
   <header>
     <div class="container nav-inner">
-      <a href="#" class="brand">
-        <span class="brand-dot"></span>
-        <span>isacGhilardi<span class="mono" style="color:var(--primary)">.dev</span></span>
+      <a href="#" class="logo">
+        <span class="logo-mark">🧭</span>
+        <span>ISAC GHILARDI</span>
+        <span class="logo-sub mono">ADS · DEV</span>
       </a>
 
-      <nav>
-        <a href="#sobre" data-i18n="nav_about">Sobre</a>
-        <a href="#skills" data-i18n="nav_skills">Tecnologias</a>
-        <a href="#projetos" data-i18n="nav_projects">Projetos</a>
-        <a href="#contato" data-i18n="nav_contact">Contato</a>
+      <nav class="nav-links">
+        <a href="#perfil">Para recrutadores</a>
+        <a href="#jornada">4 Passos</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#entrevista">Simulador</a>
+        <a href="#terminal">Terminal</a>
       </nav>
 
-      <div class="nav-actions">
-        <button class="icon-btn" id="langToggle" title="Switch Language">🌐 PT</button>
-        <button class="icon-btn" id="themeToggle" title="Alternar Tema">☀️</button>
+      <div class="nav-right">
+        <button class="btn-ghost" id="themeToggle" title="Alternar tema">☀️</button>
+        <a href="https://www.linkedin.com/in/isac-ghilardi-858285266" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+        <a href="#contato-footer" class="btn-accent">Chamar para estágio →</a>
       </div>
     </div>
   </header>
 
+  <!-- Marquee Strip (estilo Bora na Tech creators strip) -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">☕ <strong>Java</strong></span>
+      <span class="marquee-item">🟣 <strong>C#</strong></span>
+      <span class="marquee-item">🔵 <strong>Linguagem C</strong></span>
+      <span class="marquee-item">🔺 <strong>Laravel &amp; Blade</strong></span>
+      <span class="marquee-item">🐘 <strong>PHP</strong></span>
+      <span class="marquee-item">🐬 <strong>MySQL</strong></span>
+      <span class="marquee-item">🐳 <strong>Docker</strong></span>
+      <span class="marquee-item">⚡ <strong>HTML · CSS · JS</strong></span>
+      <span class="marquee-item">🎓 <strong>Instituto Salmus</strong></span>
+      <span class="marquee-item">📍 <strong>Caxias-MA · 🇮🇹🇧🇷</strong></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">☕ <strong>Java</strong></span>
+      <span class="marquee-item">🟣 <strong>C#</strong></span>
+      <span class="marquee-item">🔵 <strong>Linguagem C</strong></span>
+      <span class="marquee-item">🔺 <strong>Laravel &amp; Blade</strong></span>
+      <span class="marquee-item">🐘 <strong>PHP</strong></span>
+      <span class="marquee-item">🐬 <strong>MySQL</strong></span>
+      <span class="marquee-item">🐳 <strong>Docker</strong></span>
+      <span class="marquee-item">⚡ <strong>HTML · CSS · JS</strong></span>
+      <span class="marquee-item">🎓 <strong>Instituto Salmus</strong></span>
+      <span class="marquee-item">📍 <strong>Caxias-MA · 🇮🇹🇧🇷</strong></span>
+    </div>
+  </div>
+
   <main class="container">
     <!-- Hero -->
     <section class="hero">
-      <div>
-        <div class="status-pill">
-          <span class="pulse"></span>
-          <span data-i18n="hero_badge">Disponível para Estágio em Desenvolvimento</span>
-        </div>
-
-        <h1>
-          <span data-i18n="hero_hi">Olá, eu sou</span>
-          <span class="gradient-text">Isac Ghilardi</span>
-        </h1>
-
-        <div class="typing-line mono">
-          <span>&gt;</span>
-          <span id="typingText"></span>
-          <span class="cursor"></span>
-        </div>
-
-        <p class="hero-sub" data-i18n="hero_desc">
-          Italiano 🇮🇹 estudando Análise e Desenvolvimento de Sistemas no Brasil 🇧🇷 (Instituto Salmus de Ensino). Construo aplicações práticas com foco em Back-end, Web e Lógica de Programação.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#projetos" class="btn btn-primary" data-i18n="cta_projects">Ver Projetos</a>
-          <a href="https://github.com/isacGhilardi" target="_blank" rel="noopener" class="btn btn-secondary">
-            GitHub ↗
-          </a>
-          <button class="btn btn-secondary" id="copyEmailBtn" data-i18n="cta_copy">Copiar E-mail</button>
-        </div>
+      <div class="compass-bar">
+        <button class="compass-pill active" onclick="scrollToFilter('all')">N · Visão Geral</button>
+        <button class="compass-pill" onclick="scrollToFilter('C#')">L · Back-end &amp; POO</button>
+        <button class="compass-pill" onclick="scrollToFilter('Laravel')">S · Web &amp; Laravel</button>
+        <button class="compass-pill" onclick="scrollToFilter('C')">O · Lógica &amp; C</button>
       </div>
 
-      <!-- GitHub Live Profile Card -->
-      <aside class="profile-card">
-        <div class="profile-header">
-          <img
-            id="ghAvatar"
-            class="avatar"
-            src="https://avatars.githubusercontent.com/u/219682565?v=4"
-            alt="Foto de perfil de Isac Ghilardi"
-          />
-          <div class="profile-meta">
-            <h2 id="ghName">Isac Ghilardi</h2>
-            <div class="handle mono">@isacGhilardi</div>
-            <div class="location">📍 Caxias-MA, Brasil • 🇮🇹/🇧🇷</div>
-          </div>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-value" id="statRepos">26</div>
-            <div class="stat-label" data-i18n="stat_repos">Repositórios</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="statFollowers">11</div>
-            <div class="stat-label" data-i18n="stat_followers">Seguidores</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="statStars">3+</div>
-            <div class="stat-label">Stars</div>
-          </div>
-        </div>
-
-        <div class="achievements">
-          <span class="badge">⚡ Quickdraw</span>
-          <span class="badge">🦈 Pull Shark</span>
-          <span class="badge">🎓 Instituto Salmus</span>
-        </div>
-
-        <p style="font-size:0.84rem; color: var(--text-muted);" id="ghSyncNote">
-          🔄 Dados sincronizados com o perfil GitHub.
-        </p>
-      </aside>
-    </section>
-
-    <!-- About & Terminal -->
-    <section id="sobre">
-      <div class="section-head">
+      <div class="hero-grid">
         <div>
-          <span class="section-tag" data-i18n="about_tag">01 // Quem sou eu</span>
-          <h2 class="section-title" data-i18n="about_title">Sobre mim &amp; Terminal Interativo</h2>
-        </div>
-      </div>
+          <div class="hero-kicker">
+            <span class="pulse-dot"></span>
+            <span>Disponível para Estágio em TI · Caxias-MA ou Remoto</span>
+          </div>
 
-      <div class="about-grid">
-        <div class="card">
-          <h3 style="margin-bottom:0.6rem;" data-i18n="about_card_title">Da Itália para a tecnologia no Brasil</h3>
-          <p style="color:var(--text-muted); font-size:0.95rem;" data-i18n="about_card_text">
-            Sou estudante de Análise e Desenvolvimento de Sistemas apaixonado por resolver problemas reais através de código limpo. Venho construindo projetos acadêmicos e pessoais que vão desde sistemas CRUD em C# e aplicações web com Laravel/PHP até jogos interativos em JavaScript e algoritmos em C.
+          <h1>
+            Sua próxima contratação júnior começa com uma <span>base sólida.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Sou <strong>Isac Ghilardi</strong>, italiano 🇮🇹 estudando Análise e Desenvolvimento de Sistemas no Brasil 🇧🇷 (Instituto Salmus de Ensino). Construo sistemas práticos em <strong>Java, C#, C, Laravel e MySQL</strong>, do código acadêmico ao deploy.
           </p>
 
-          <ul class="about-list">
-            <li><span>🎓</span><div><strong data-i18n="li_edu">Formação:</strong> Instituto Salmus de Ensino — ADS</div></li>
-            <li><span>🎯</span><div><strong data-i18n="li_goal">Objetivo:</strong> <span data-i18n="li_goal_val">Oportunidade de estágio para evoluir em equipe e entregar código de impacto.</span></div></li>
-            <li><span>🌍</span><div><strong data-i18n="li_lang">Idiomas:</strong> Português, Italiano &amp; Inglês técnico</div></li>
-          </ul>
+          <div class="hero-actions">
+            <a href="#projetos" class="btn-accent btn-lg">Explorar projetos →</a>
+            <a href="https://github.com/isacGhilardi" target="_blank" rel="noopener" class="btn-ghost btn-lg">Ver GitHub (@isacGhilardi)</a>
+            <button class="btn-ghost btn-lg" id="copyEmailBtn">Copiar e-mail</button>
+          </div>
+
+          <!-- Quick Tech Chips (idênticos ao Bora na Tech) -->
+          <div class="areas-strip">
+            <button class="area-chip" onclick="scrollToFilter('C#')">
+              <div class="area-chip-title">Back-end &amp; POO</div>
+              <div class="area-chip-sub">▶ C#, Java</div>
+            </button>
+            <button class="area-chip" onclick="scrollToFilter('Laravel')">
+              <div class="area-chip-title">Web Full-stack</div>
+              <div class="area-chip-sub">▶ PHP, Laravel, Blade</div>
+            </button>
+            <button class="area-chip" onclick="scrollToFilter('Web')">
+              <div class="area-chip-title">Front-end</div>
+              <div class="area-chip-sub">▶ HTML5, CSS3, JS</div>
+            </button>
+            <button class="area-chip" onclick="scrollToFilter('C')">
+              <div class="area-chip-title">Algoritmos &amp; Core</div>
+              <div class="area-chip-sub">▶ Linguagem C</div>
+            </button>
+            <button class="area-chip" onclick="scrollToFilter('all')">
+              <div class="area-chip-title">Banco &amp; Infra</div>
+              <div class="area-chip-sub">▶ MySQL, Docker, Git</div>
+            </button>
+          </div>
         </div>
 
-        <!-- Interactive Terminal -->
-        <div class="terminal">
-          <div class="terminal-bar">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <span class="mono">isac@portfolio: ~</span>
-            <span>bash</span>
+        <!-- Right Bento Card -->
+        <aside class="dev-card">
+          <div class="dev-card-top">
+            <img id="ghAvatar" class="dev-avatar" src="https://avatars.githubusercontent.com/u/219682565?v=4" alt="Isac Ghilardi" />
+            <div class="dev-meta">
+              <h2>Isac Ghilardi</h2>
+              <div class="handle mono">@isacGhilardi</div>
+              <div class="loc">📍 Caxias-MA, Brasil (UTC -03:00)</div>
+            </div>
           </div>
 
-          <div class="terminal-quick">
-            <button class="quick-chip mono" data-cmd="help">help</button>
-            <button class="quick-chip mono" data-cmd="about">about</button>
-            <button class="quick-chip mono" data-cmd="skills">skills</button>
-            <button class="quick-chip mono" data-cmd="projects">projects</button>
-            <button class="quick-chip mono" data-cmd="internship">internship</button>
-            <button class="quick-chip mono" data-cmd="clear">clear</button>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong id="statRepos">26</strong>
+              <span>Repositórios</span>
+            </div>
+            <div class="mini-stat">
+              <strong id="statFollowers">11</strong>
+              <span>Seguidores</span>
+            </div>
+            <div class="mini-stat">
+              <strong id="statStars">3</strong>
+              <span>Stars</span>
+            </div>
           </div>
 
-          <div class="terminal-body mono" id="terminalBody">
-            <div class="term-line term-accent">Bem-vindo ao terminal do portfólio de Isac Ghilardi!</div>
-            <div class="term-line term-out">Digite "help" ou clique em um comando acima para explorar.</div>
+          <div class="tag-row">
+            <span class="pill-tag green">⚡ Quickdraw</span>
+            <span class="pill-tag green">🦈 Pull Shark</span>
+            <span class="pill-tag">🎓 Instituto Salmus</span>
+            <span class="pill-tag">🇮🇹 Italiano no Brasil</span>
           </div>
 
-          <form class="terminal-input-row" id="terminalForm">
-            <span class="mono">$</span>
-            <input type="text" id="terminalInput" placeholder="Digite um comando (ex: skills)..." autocomplete="off" />
-          </form>
-        </div>
+          <div style="font-size:0.8rem; color:var(--text-muted); padding:0.75rem; border-radius:10px; background:var(--bg-soft); border:1px solid var(--border);" id="ghSyncStatus">
+            🔄 Conectado à API pública do GitHub.
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills">
-      <div class="section-head">
-        <div>
-          <span class="section-tag" data-i18n="skills_tag">02 // Stack Técnica</span>
-          <h2 class="section-title" data-i18n="skills_title">Linguagens &amp; Ferramentas</h2>
+    <!-- "Talvez isso seja você" adaptado para Tech Leads / Recrutadores -->
+    <section id="perfil">
+      <div class="section-header">
+        <span class="eyebrow">Talvez seja o que seu time precisa</span>
+        <h2>Contratar alguém em início de carreira não precisa ser no escuro.</h2>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-num">01 · PRÁTICA REAL</div>
+          <h3>Cansado de portfólios só com "Hello World"?</h3>
+          <p>Aqui você encontra CRUDs completos em C#, sistemas de autenticação em Laravel, sites institucionais reais e jogos em JavaScript.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">02 · BASE FORTE</div>
+          <h3>Precisa de quem entenda lógica de verdade?</h3>
+          <p>Além de frameworks modernos, pratico Programação Orientada a Objetos (Java/C#) e algoritmos estruturados em Linguagem C.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-num">03 · RITMO DE TIME</div>
+          <h3>Quer alguém curioso e com Git em dia?</h3>
+          <p>Uso Docker, Composer, Git/GitHub, IntelliJ, Visual Studio e VS Code no fluxo diário para manter o código organizado.</p>
         </div>
       </div>
 
-      <div class="skills-grid">
-        <div class="card skill-cat">
-          <h3>⚙️ Back-end &amp; Core</h3>
-          <div class="skill-tags">
-            <span class="skill-pill">☕ Java</span>
-            <span class="skill-pill">🟣 C# (.NET)</span>
-            <span class="skill-pill">🔵 Linguagem C</span>
-            <span class="skill-pill">🐘 PHP</span>
-            <span class="skill-pill">🔺 Laravel</span>
-          </div>
+      <div class="turn-banner">
+        <div>
+          <span class="eyebrow" style="margin-bottom:0.2rem;">A virada</span>
+          <h3 style="font-size:1.15rem;">Constância nos estudos + código versionado todo dia.</h3>
+          <p style="font-size:0.88rem; color:var(--text-muted);">Pronto para somar em times de Back-end, Full-stack ou Engenharia de Software.</p>
         </div>
-
-        <div class="card skill-cat">
-          <h3>🎨 Front-end &amp; Web</h3>
-          <div class="skill-tags">
-            <span class="skill-pill">🌐 HTML5</span>
-            <span class="skill-pill">🎨 CSS3</span>
-            <span class="skill-pill">⚡ JavaScript</span>
-            <span class="skill-pill">🧩 Blade Templates</span>
-          </div>
-        </div>
-
-        <div class="card skill-cat">
-          <h3>🗄️ Banco de Dados &amp; DevOps</h3>
-          <div class="skill-tags">
-            <span class="skill-pill">🐬 MySQL</span>
-            <span class="skill-pill">🐳 Docker</span>
-            <span class="skill-pill">📦 Composer</span>
-            <span class="skill-pill">🌿 Git &amp; GitHub</span>
-          </div>
-        </div>
-
-        <div class="card skill-cat">
-          <h3>🛠️ IDEs &amp; Ambiente</h3>
-          <div class="skill-tags">
-            <span class="skill-pill">🧠 IntelliJ IDEA</span>
-            <span class="skill-pill">💜 Visual Studio</span>
-            <span class="skill-pill">💙 VS Code</span>
-          </div>
-        </div>
+        <a href="#entrevista" class="btn-accent">Testar Simulador de Entrevista →</a>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projetos">
-      <div class="section-head">
-        <div>
-          <span class="section-tag" data-i18n="proj_tag">03 // Portfólio no GitHub</span>
-          <h2 class="section-title" data-i18n="proj_title">Projetos em Destaque</h2>
-        </div>
-        <button class="icon-btn" id="syncGithubBtn">🔄 <span data-i18n="btn_sync">Atualizar do GitHub</span></button>
+    <!-- 4 Steps Journey (Estilo "Um caminho, quatro passos") -->
+    <section id="jornada">
+      <div class="section-header">
+        <span class="eyebrow">Como eu construo</span>
+        <h2>Uma jornada, quatro pilares</h2>
+        <p>Clique em cada etapa para explorar minha formação, ferramentas e entregas.</p>
       </div>
 
-      <div class="projects-controls">
-        <div class="filter-group" id="filterGroup">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="C#">C#</button>
-          <button class="filter-btn" data-filter="Laravel">Laravel / PHP</button>
-          <button class="filter-btn" data-filter="Web">Web (HTML/CSS/JS)</button>
-          <button class="filter-btn" data-filter="C">C</button>
-        </div>
-        <input type="search" class="search-box" id="projectSearch" placeholder="Buscar repositório..." />
-      </div>
-
-      <div class="projects-grid" id="projectsGrid"></div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contato">
-      <div class="section-head">
-        <div>
-          <span class="section-tag" data-i18n="contact_tag">04 // Vamos conversar</span>
-          <h2 class="section-title" data-i18n="contact_title">Entre em Contato</h2>
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <div class="card">
-          <h3 style="margin-bottom:0.5rem;" data-i18n="contact_sub">Aberto a oportunidades de estágio e projetos</h3>
-          <p style="color:var(--text-muted); font-size:0.94rem;" data-i18n="contact_desc">
-            Se você procura um estudante dedicado, curioso e com base sólida em programação orientada a objetos, back-end e desenvolvimento web, será um prazer conversar!
-          </p>
-
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/isac-ghilardi-858285266" target="_blank" rel="noopener" class="social-item">
-              <span>💼 LinkedIn</span>
-              <span class="mono" style="color:var(--primary)">in/isac-ghilardi ↗</span>
-            </a>
-            <a href="https://github.com/isacGhilardi" target="_blank" rel="noopener" class="social-item">
-              <span>🐙 GitHub</span>
-              <span class="mono" style="color:var(--primary)">@isacGhilardi ↗</span>
-            </a>
-            <a href="mailto:isacghilardi@gmail.com" class="social-item">
-              <span>✉️ E-mail</span>
-              <span class="mono" style="color:var(--primary)">isacghilardi@gmail.com</span>
-            </a>
-            <a href="https://www.instagram.com/isacghilardi_/" target="_blank" rel="noopener" class="social-item">
-              <span>📸 Instagram</span>
-              <span class="mono" style="color:var(--primary)">@isacghilardi_ ↗</span>
-            </a>
-            <a href="https://youtube.com/@ghilardiyt" target="_blank" rel="noopener" class="social-item">
-              <span>▶️ YouTube</span>
-              <span class="mono" style="color:var(--primary)">@ghilardiyt ↗</span>
-            </a>
-          </div>
-        </div>
-
-        <form class="card" id="contactForm">
-          <div class="form-group">
-            <label for="cName" data-i18n="form_name">Seu nome</label>
-            <input type="text" id="cName" required placeholder="Ex: Recrutador / Tech Lead" />
-          </div>
-          <div class="form-group">
-            <label for="cEmail" data-i18n="form_email">Seu e-mail</label>
-            <input type="email" id="cEmail" required placeholder="voce@empresa.com" />
-          </div>
-          <div class="form-group">
-            <label for="cMsg" data-i18n="form_msg">Mensagem</label>
-            <textarea id="cMsg" rows="4" required placeholder="Olá Isac, vimos seu portfólio..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" data-i18n="form_send">
-            Enviar Mensagem ✉️
+      <div class="steps-layout">
+        <div class="steps-list" id="stepsList">
+          <button class="step-btn active" data-step="0">
+            <div>
+              <div class="step-code">01 · BASE ACADÊMICA</div>
+              <div class="step-title">Fundamentos &amp; Lógica</div>
+              <div class="step-desc">ADS no Instituto Salmus + Linguagem C e POO.</div>
+            </div>
+            <span>→</span>
           </button>
-        </form>
+
+          <button class="step-btn" data-step="1">
+            <div>
+              <div class="step-code">02 · STACK BACK-END</div>
+              <div class="step-title">Java, C#, PHP &amp; MySQL</div>
+              <div class="step-desc">Modelagem de dados, autenticação e regras de negócio.</div>
+            </div>
+            <span>→</span>
+          </button>
+
+          <button class="step-btn" data-step="2">
+            <div>
+              <div class="step-code">03 · PRÁTICA EM WEB</div>
+              <div class="step-title">Laravel, Blade &amp; Front-end</div>
+              <div class="step-desc">Interfaces responsivas e projetos extensionistas.</div>
+            </div>
+            <span>→</span>
+          </button>
+
+          <button class="step-btn" data-step="3">
+            <div>
+              <div class="step-code">04 · EVOLUÇÃO</div>
+              <div class="step-title">Pronto para Estágio</div>
+              <div class="step-desc">GitHub ativo, Docker e aprendizado contínuo em equipe.</div>
+            </div>
+            <span>→</span>
+          </button>
+        </div>
+
+        <div class="step-preview" id="stepPreview">
+          <!-- preenchido via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Numbers Strip -->
+    <section style="padding: 2rem 0;">
+      <div class="section-header" style="margin-bottom:1.25rem;">
+        <span class="eyebrow">Em números</span>
+        <h2>Consistência visível no código</h2>
+      </div>
+      <div class="numbers-grid">
+        <div class="number-box">
+          <div class="number-big" id="bigRepos">+26</div>
+          <div class="number-label">repositórios públicos</div>
+          <div class="number-sub">entre projetos acadêmicos, TDEs, PIE e desafios pessoais</div>
+        </div>
+        <div class="number-box">
+          <div class="number-big">+7</div>
+          <div class="number-label">linguagens &amp; frameworks</div>
+          <div class="number-sub">Java, C#, C, PHP, Laravel, HTML/CSS/JS e MySQL</div>
+        </div>
+        <div class="number-box">
+          <div class="number-big">3</div>
+          <div class="number-label">idiomas no dia a dia</div>
+          <div class="number-sub">Italiano nativo, Português fluente e Inglês técnico</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Projects Grid -->
+    <section id="projetos">
+      <div class="section-header" style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem;">
+        <div>
+          <span class="eyebrow">Tudo organizado</span>
+          <h2>Projetos construídos na prática</h2>
+          <p>Repositórios reais do meu GitHub, sincronizados automaticamente.</p>
+        </div>
+        <button class="btn-ghost" id="syncBtn">🔄 Sincronizar GitHub</button>
+      </div>
+
+      <div class="controls-row">
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all">Todos</button>
+          <button class="filter-pill" data-filter="C#">C#</button>
+          <button class="filter-pill" data-filter="Laravel">Laravel / PHP</button>
+          <button class="filter-pill" data-filter="Web">Web / JS</button>
+          <button class="filter-pill" data-filter="C">Linguagem C</button>
+        </div>
+        <input type="search" class="search-input" id="searchInput" placeholder="Buscar projeto..." />
+      </div>
+
+      <div class="bento-projects" id="projectsGrid"></div>
+    </section>
+
+    <!-- Interview Simulator (Estilo "Simulador de Entrevista" do Bora na Tech) -->
+    <section id="entrevista">
+      <div class="section-header">
+        <span class="eyebrow">Simulador de entrevista</span>
+        <h2>Pergunte direto antes mesmo da call</h2>
+        <p>Selecione uma pergunta comum de recrutamento para ver como eu respondo.</p>
+      </div>
+
+      <div class="sim-grid">
+        <div class="sim-questions" id="simQuestions">
+          <button class="sim-q-btn active" data-q="0">1. Por que você escolheu Análise e Desenvolvimento de Sistemas?</button>
+          <button class="sim-q-btn" data-q="1">2. Qual projeto no seu GitHub você mais recomenda olhar?</button>
+          <button class="sim-q-btn" data-q="2">3. Como é seu domínio atual de Back-end e Banco de Dados?</button>
+          <button class="sim-q-btn" data-q="3">4. Qual sua disponibilidade para estágio?</button>
+        </div>
+
+        <div class="sim-chat">
+          <div class="sim-header">
+            <span><strong>Entrevista Técnica</strong> · @isacGhilardi</span>
+            <span style="color:var(--accent);" class="mono">● Online</span>
+          </div>
+          <div id="simBody"></div>
+          <div style="font-size:0.76rem; color:var(--text-dim); margin-top:0.5rem;">
+            Quer conversar ao vivo? <a href="mailto:isacghilardi@gmail.com" style="color:var(--accent);">isacghilardi@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Terminal Section (Idêntico ao rodapé pré-footer do Bora na Tech) -->
+    <section id="terminal">
+      <div class="terminal-showcase">
+        <div class="binary-strip">
+          1110011100110010110101101101110011110011010101101001110101011100101011010111001011001011010101101
+        </div>
+
+        <div class="term-split">
+          <aside class="term-sidebar">
+            <div class="term-cat">EXPLORAR</div>
+            <button class="term-cmd-btn" data-cmd="help">&gt;help</button>
+            <button class="term-cmd-btn" data-cmd="skills">&gt;skills</button>
+            <button class="term-cmd-btn" data-cmd="roadmap">&gt;roadmap</button>
+
+            <div class="term-cat">AÇÕES</div>
+            <button class="term-cmd-btn" data-cmd="projects">&gt;projects</button>
+            <button class="term-cmd-btn" data-cmd="hire">&gt;hire</button>
+
+            <div class="term-cat">UTIL</div>
+            <button class="term-cmd-btn" data-cmd="clear">&gt;clear</button>
+          </aside>
+
+          <div class="term-main">
+            <div class="term-topbar">
+              <div class="term-dots"><span></span><span></span><span></span></div>
+              <span class="mono">isacghilardi ~ terminal</span>
+              <span>bash</span>
+            </div>
+
+            <div class="term-output" id="termOutput"><span style="color:#4ade80; font-weight:700;">&gt; ISAC GHILARDI</span>
+Estudante de ADS &amp; Desenvolvedor em formação (Caxias-MA).
+&gt; Digite ou clique em um comando à esquerda pra começar.
+</div>
+
+            <form class="term-prompt-row" id="termForm">
+              <span class="mono" style="color:#4ade80;">$</span>
+              <input type="text" id="termInput" placeholder="Digite help, skills, projects, hire..." autocomplete="off" />
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <!-- Multi-column Footer (Estilo Bora na Tech) -->
+  <footer id="contato-footer">
     <div class="container">
-      <p>Feito com 💻 por <strong>Isac Ghilardi</strong> • Caxias-MA, Brasil 🇧🇷🇮🇹</p>
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo" style="margin-bottom:0.75rem;">
+            <span class="logo-mark">🧭</span>
+            <span>ISAC GHILARDI</span>
+          </a>
+          <p style="font-size:0.86rem; color:var(--text-muted); max-width:34ch;">
+            Italiano estudando Análise e Desenvolvimento de Sistemas no Brasil. Construindo projetos reais em Java, C#, C, Laravel e MySQL.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <a href="#perfil">Para recrutadores</a>
+          <a href="#jornada">Jornada em 4 passos</a>
+          <a href="#projetos">Todos os projetos</a>
+          <a href="#entrevista">Simulador</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destaques</h4>
+          <a href="https://github.com/isacGhilardi/ASSOCIA-O-DE-ARTES-OS-DE-CAXIAS" target="_blank" rel="noopener">Associação de Artesãos</a>
+          <a href="https://github.com/isacGhilardi/Pokemon-Memory-Card-Game" target="_blank" rel="noopener">Pokémon Memory Game</a>
+          <a href="https://github.com/isacGhilardi/Framework-cadastro-de-usuarios" target="_blank" rel="noopener">Framework Users Login</a>
+          <a href="https://github.com/isacGhilardi/Sistema_Cadastro" target="_blank" rel="noopener">CRUD em C#</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Vem conversar</h4>
+          <a href="mailto:isacghilardi@gmail.com">isacghilardi@gmail.com</a>
+          <a href="https://www.linkedin.com/in/isac-ghilardi-858285266" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/isacGhilardi" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.instagram.com/isacghilardi_/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://youtube.com/@ghilardiyt" target="_blank" rel="noopener">YouTube ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Isac Ghilardi · Inspirado na estética Bora na Tech? · Caxias-MA, Brasil 🇧🇷🇮🇹</span>
+        <span>Disponível para estágio em desenvolvimento</span>
+      </div>
     </div>
   </footer>
 
-  <!-- Project Details Modal -->
-  <div class="modal-backdrop" id="projectModal">
+  <!-- Project Modal -->
+  <div class="modal-backdrop" id="modal">
     <div class="modal-box">
       <button class="modal-close" id="closeModal">✕</button>
-      <span class="project-lang" id="modalLang">Tech</span>
-      <h3 style="margin: 0.75rem 0 0.5rem; font-size:1.35rem;" id="modalTitle">Título</h3>
-      <p style="color:var(--text-muted); margin-bottom:1.25rem;" id="modalDesc">Descrição</p>
-      <div style="display:flex; gap:1rem; font-size:0.86rem; color:var(--text-muted); margin-bottom:1.5rem;" id="modalMeta"></div>
-      <a href="#" target="_blank" rel="noopener" class="btn btn-primary" id="modalLink">Abrir no GitHub ↗</a>
+      <span class="badge-free" id="mLang">Stack</span>
+      <h3 style="margin:0.8rem 0 0.5rem; font-size:1.3rem;" id="mTitle">Projeto</h3>
+      <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1.1rem;" id="mDesc"></p>
+      <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.4rem;" id="mStats"></div>
+      <a href="#" target="_blank" rel="noopener" class="btn-accent" id="mLink">Abrir repositório no GitHub →</a>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast">Copiado!</div>
+  <div class="toast" id="toast">Ação realizada!</div>
 
   <script>
-    // ====== 1. Curated Projects Fallback (Baseado no GitHub real) ======
-    const fallbackProjects = [
+    // ====== 1. Data ======
+    const curatedProjects = [
       {
         name: "ASSOCIA-O-DE-ARTES-OS-DE-CAXIAS",
         title: "Associação de Artesãos de Caxias",
-        language: "Blade",
+        language: "Blade · Laravel",
         category: "Laravel",
         stars: 2,
         forks: 0,
-        description: "Site institucional desenvolvido com Laravel e Blade para divulgar os trabalhos e artistas da Associação de Artesãos de Caxias-MA.",
-        url: "https://github.com/isacGhilardi/ASSOCIA-O-DE-ARTES-OS-DE-CAXIAS",
-        featured: true
+        description: "Site desenvolvido em Laravel e Blade para divulgar o trabalho dos artistas e artesãos locais de Caxias-MA.",
+        url: "https://github.com/isacGhilardi/ASSOCIA-O-DE-ARTES-OS-DE-CAXIAS"
       },
       {
         name: "Pokemon-Memory-Card-Game",
         title: "Pokémon Memory Card Game",
-        language: "CSS / JS",
+        language: "HTML · CSS · JS",
         category: "Web",
         stars: 0,
         forks: 1,
-        description: "Jogo da memória Pokémon desenvolvido para o PIE (Projeto Integrador Extensionista), demonstrando o uso prático de HTML5, CSS3 e JavaScript.",
-        url: "https://github.com/isacGhilardi/Pokemon-Memory-Card-Game",
-        featured: true
+        description: "Jogo da memória interativo desenvolvido para o PIE (Projeto Integrador Extensionista) usando JavaScript puro e CSS.",
+        url: "https://github.com/isacGhilardi/Pokemon-Memory-Card-Game"
       },
       {
         name: "Framework-cadastro-de-usuarios",
-        title: "Framework: Cadastro & Login de Usuários",
-        language: "PHP / Laravel",
+        title: "Framework: Users Login",
+        language: "PHP · Laravel",
         category: "Laravel",
         stars: 0,
         forks: 0,
-        description: "Estrutura completa de autenticação, registro e gerenciamento de usuários com foco em boas práticas e banco de dados MySQL.",
-        url: "https://github.com/isacGhilardi/Framework-cadastro-de-usuarios",
-        featured: true
+        description: "Sistema de cadastro, validação e login de usuários integrado ao MySQL.",
+        url: "https://github.com/isacGhilardi/Framework-cadastro-de-usuarios"
       },
       {
         name: "Sistema_Cadastro",
-        title: "CRUD em C# (Sistema de Cadastro)",
+        title: "CRUD em C#",
         language: "C#",
         category: "C#",
         stars: 0,
         forks: 0,
-        description: "Aplicação CRUD completa em C# aplicando conceitos de Programação Orientada a Objetos para cadastro e manutenção de registros.",
-        url: "https://github.com/isacGhilardi/Sistema_Cadastro",
-        featured: true
+        description: "Aplicação CRUD completa desenvolvida em C# aplicando Programação Orientada a Objetos.",
+        url: "https://github.com/isacGhilardi/Sistema_Cadastro"
       },
       {
         name: "Social-Anxiety",
@@ -1236,9 +1503,8 @@
         category: "C#",
         stars: 1,
         forks: 0,
-        description: "Projeto desenvolvido em C# explorando estruturação de software, lógica e resolução de problemas.",
-        url: "https://github.com/isacGhilardi/Social-Anxiety",
-        featured: true
+        description: "Projeto desenvolvido em C# com foco em estruturação de código e lógica de aplicação.",
+        url: "https://github.com/isacGhilardi/Social-Anxiety"
       },
       {
         name: "Sistema_Biblioteca",
@@ -1247,72 +1513,37 @@
         category: "C#",
         stars: 0,
         forks: 0,
-        description: "Sistema de gerenciamento de biblioteca em C# para controle de livros, empréstimos e organização de acervo.",
-        url: "https://github.com/isacGhilardi/Sistema_Biblioteca",
-        featured: false
+        description: "Gerenciamento de acervo, cadastro de livros e controle de biblioteca em C#.",
+        url: "https://github.com/isacGhilardi/Sistema_Biblioteca"
       },
       {
         name: "Calculadora-de-Equa-es",
-        title: "Calculadora de Equações em C",
+        title: "Calculadora de Equações",
         language: "C",
         category: "C",
         stars: 0,
         forks: 0,
-        description: "Calculadora de equações desenvolvida em linguagem C para o TDE (Trabalho Discente Efetivo), focada em algoritmos matemáticos e desempenho.",
-        url: "https://github.com/isacGhilardi/Calculadora-de-Equa-es",
-        featured: true
+        description: "Calculadora matemática em Linguagem C criada para TDE (Trabalho Discente Efetivo).",
+        url: "https://github.com/isacGhilardi/Calculadora-de-Equa-es"
       },
       {
         name: "Desafio_poo1",
-        title: "Desafio POO",
+        title: "Desafio POO em C#",
         language: "C#",
         category: "C#",
         stars: 0,
         forks: 0,
-        description: "Resolução de desafio prático de Programação Orientada a Objetos em C# (encapsulamento, herança e polimorfismo).",
-        url: "https://github.com/isacGhilardi/Desafio_poo1",
-        featured: false
+        description: "Exercício prático de abstração, herança, encapsulamento e polimorfismo.",
+        url: "https://github.com/isacGhilardi/Desafio_poo1"
       }
     ];
 
-    let allProjects = [...fallbackProjects];
+    let projects = [...curatedProjects];
     let currentFilter = "all";
-    let searchQuery = "";
+    let searchTerm = "";
 
-    // ====== 2. Typing Animation ======
-    const roles = [
-      "Estudante de ADS @ Instituto Salmus",
-      "Java • C# • C • PHP / Laravel • MySQL",
-      "Em busca de Estágio em Desenvolvimento",
-      "Italiano 🇮🇹 construindo software no Brasil 🇧🇷"
-    ];
-    let roleIdx = 0, charIdx = 0, deleting = false;
-    const typingEl = document.getElementById("typingText");
-
-    function typeLoop() {
-      const current = roles[roleIdx];
-      if (!deleting) {
-        typingEl.textContent = current.slice(0, ++charIdx);
-        if (charIdx === current.length) {
-          deleting = true;
-          setTimeout(typeLoop, 1800);
-          return;
-        }
-      } else {
-        typingEl.textContent = current.slice(0, --charIdx);
-        if (charIdx === 0) {
-          deleting = false;
-          roleIdx = (roleIdx + 1) % roles.length;
-        }
-      }
-      setTimeout(typeLoop, deleting ? 32 : 55);
-    }
-    typeLoop();
-
-    // ====== 3. Render Projects & Modal ======
-    const grid = document.getElementById("projectsGrid");
-
-    function categorizeRepo(lang) {
+    // ====== 2. Render Projects Bento ======
+    function detectCategory(lang) {
       if (!lang) return "Web";
       const l = lang.toLowerCase();
       if (l.includes("c#")) return "C#";
@@ -1322,247 +1553,310 @@
     }
 
     function renderProjects() {
-      const filtered = allProjects.filter(p => {
-        const matchCat = currentFilter === "all" || p.category === currentFilter;
-        const q = searchQuery.toLowerCase();
-        const matchSearch =
+      const grid = document.getElementById("projectsGrid");
+      const list = projects.filter(p => {
+        const okCat = currentFilter === "all" || p.category === currentFilter;
+        const q = searchTerm.toLowerCase();
+        const okSearch =
           p.title.toLowerCase().includes(q) ||
           p.name.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
           p.language.toLowerCase().includes(q);
-        return matchCat && matchSearch;
+        return okCat && okSearch;
       });
 
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="card" style="grid-column:1/-1; text-align:center; color:var(--text-muted);">Nenhum projeto encontrado com esse filtro.</div>`;
+      if (!list.length) {
+        grid.innerHTML = `<div class="bento-card" style="grid-column:1/-1; text-align:center; color:var(--text-muted);">Nenhum repositório encontrado para este filtro.</div>`;
         return;
       }
 
-      grid.innerHTML = filtered.map((p, idx) => `
-        <article class="project-card">
+      grid.innerHTML = list.map(p => `
+        <article class="bento-card">
           <div>
-            <div class="project-top">
-              <h3 class="project-title">${p.title}</h3>
-              <span class="project-lang">${p.language}</span>
+            <div class="bento-head">
+              <h3 class="bento-title">${p.title}</h3>
+              <span class="badge-free">${p.language}</span>
             </div>
-            <p class="project-desc" style="margin-top:0.65rem;">${p.description}</p>
+            <p class="bento-desc">${p.description}</p>
           </div>
-          <div class="project-footer">
+          <div class="bento-foot">
             <span>⭐ ${p.stars} &nbsp; 🍴 ${p.forks}</span>
-            <div class="project-actions">
-              <button class="mini-btn" onclick="openProjectModal('${p.name.replace(/'/g, "\\'")}')">Detalhes</button>
-              <a class="mini-btn" href="${p.url}" target="_blank" rel="noopener">Código ↗</a>
+            <div style="display:flex; gap:0.75rem;">
+              <button class="open-link" onclick="openModal('${p.name.replace(/'/g, "\\'")}')">Detalhes</button>
+              <a class="open-link" href="${p.url}" target="_blank" rel="noopener">Abrir →</a>
             </div>
           </div>
         </article>
       `).join("");
     }
 
-    window.openProjectModal = function(repoName) {
-      const p = allProjects.find(item => item.name === repoName);
-      if (!p) return;
-      document.getElementById("modalLang").textContent = p.language;
-      document.getElementById("modalTitle").textContent = p.title;
-      document.getElementById("modalDesc").textContent = p.description;
-      document.getElementById("modalMeta").innerHTML = `<span>📦 Repositório: <strong>${p.name}</strong></span><span>⭐ ${p.stars} stars</span><span>🍴 ${p.forks} forks</span>`;
-      document.getElementById("modalLink").href = p.url;
-      document.getElementById("projectModal").classList.add("open");
+    window.scrollToFilter = function(cat) {
+      currentFilter = cat;
+      document.querySelectorAll(".filter-pill").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.filter === cat);
+      });
+      renderProjects();
+      document.getElementById("projetos").scrollIntoView({ behavior: "smooth" });
     };
 
-    document.getElementById("closeModal").addEventListener("click", () => {
-      document.getElementById("projectModal").classList.remove("open");
-    });
-    document.getElementById("projectModal").addEventListener("click", (e) => {
-      if (e.target.id === "projectModal") e.target.classList.remove("open");
-    });
-
-    // Filters & Search
-    document.querySelectorAll(".filter-btn").forEach(btn => {
+    document.querySelectorAll(".filter-pill").forEach(btn => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         currentFilter = btn.dataset.filter;
         renderProjects();
       });
     });
 
-    document.getElementById("projectSearch").addEventListener("input", (e) => {
-      searchQuery = e.target.value;
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchTerm = e.target.value;
       renderProjects();
     });
 
     renderProjects();
 
-    // ====== 4. Live GitHub API Sync ======
-    async function syncFromGitHub(manual = false) {
-      const note = document.getElementById("ghSyncNote");
-      try {
-        const [userRes, reposRes] = await Promise.all([
-          fetch("https://api.github.com/users/isacGhilardi"),
-          fetch("https://api.github.com/users/isacGhilardi/repos?sort=updated&per_page=30")
-        ]);
-
-        if (!userRes.ok || !reposRes.ok) throw new Error("API limit");
-        const user = await userRes.json();
-        const repos = await reposRes.json();
-
-        document.getElementById("statRepos").textContent = user.public_repos ?? 26;
-        document.getElementById("statFollowers").textContent = user.followers ?? 11;
-        if (user.avatar_url) document.getElementById("ghAvatar").src = user.avatar_url;
-
-        const totalStars = repos.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
-        document.getElementById("statStars").textContent = totalStars;
-
-        // Mescla descrições personalizadas com os repositórios ao vivo
-        const mapped = repos
-          .filter(r => r.name.toLowerCase() !== "isacghilardi")
-          .map(r => {
-            const custom = fallbackProjects.find(f => f.name.toLowerCase() === r.name.toLowerCase());
-            return {
-              name: r.name,
-              title: custom ? custom.title : r.name.replace(/[-_]/g, " "),
-              language: custom ? custom.language : (r.language || "Code"),
-              category: custom ? custom.category : categorizeRepo(r.language),
-              stars: r.stargazers_count,
-              forks: r.forks_count,
-              description: r.description || (custom ? custom.description : "Projeto público desenvolvido e versionado no GitHub."),
-              url: r.html_url
-            };
-          });
-
-        if (mapped.length > 0) {
-          allProjects = mapped;
-          renderProjects();
-        }
-        note.textContent = "✅ Sincronizado em tempo real com a API do GitHub.";
-        if (manual) showToast("Repositórios atualizados do GitHub!");
-      } catch (err) {
-        note.textContent = "📦 Exibindo dados em cache do perfil @isacGhilardi.";
-        if (manual) showToast("Usando cache local (limite da API GitHub).");
-      }
-    }
-
-    syncFromGitHub(false);
-    document.getElementById("syncGithubBtn").addEventListener("click", () => syncFromGitHub(true));
-
-    // ====== 5. Interactive Terminal ======
-    const termBody = document.getElementById("terminalBody");
-    const termInput = document.getElementById("terminalInput");
-
-    const commands = {
-      help: () => `Comandos disponíveis:\n  about       - Quem é Isac Ghilardi\n  skills      - Stack técnica principal\n  projects    - Principais repositórios\n  internship  - Status de disponibilidade\n  contact     - Links de contato\n  clear       - Limpar terminal`,
-      about: () => `Isac Ghilardi | Italiano 🇮🇹 estudando ADS no Brasil 🇧🇷.\nInstituição: Instituto Salmus de Ensino (Caxias-MA).\nFoco em desenvolvimento Back-end, Web e POO.`,
-      skills: () => `Linguagens: Java, C#, C, PHP, HTML5, CSS3, JavaScript\nFrameworks & DB: Laravel, Blade, MySQL\nFerramentas: Docker, Git, Composer, IntelliJ, Visual Studio, VS Code`,
-      projects: () => `• Associação de Artesãos de Caxias (Laravel/Blade)\n• Pokémon Memory Card Game (HTML/CSS/JS)\n• Framework Users Login (PHP/MySQL)\n• Sistema Cadastro & Biblioteca (C#)\n• Calculadora de Equações (C)`,
-      internship: () => `🟢 STATUS: Disponível para estágio em TI / Desenvolvimento!\nAberto a oportunidades presenciais em Caxias-MA ou remotas.`,
-      contact: () => `Email: isacghilardi@gmail.com\nGitHub: github.com/isacGhilardi\nLinkedIn: linkedin.com/in/isac-ghilardi-858285266`
+    // ====== 3. Modal ======
+    window.openModal = function(repoName) {
+      const p = projects.find(item => item.name === repoName);
+      if (!p) return;
+      document.getElementById("mLang").textContent = p.language;
+      document.getElementById("mTitle").textContent = p.title;
+      document.getElementById("mDesc").textContent = p.description;
+      document.getElementById("mStats").textContent = `Repositório: ${p.name} • ⭐ ${p.stars} stars • 🍴 ${p.forks} forks`;
+      document.getElementById("mLink").href = p.url;
+      document.getElementById("modal").classList.add("open");
     };
 
-    function runCommand(raw) {
-      const cmd = raw.trim().toLowerCase();
-      if (!cmd) return;
-      if (cmd === "clear") {
-        termBody.innerHTML = "";
-        return;
+    document.getElementById("closeModal").addEventListener("click", () => {
+      document.getElementById("modal").classList.remove("open");
+    });
+    document.getElementById("modal").addEventListener("click", (e) => {
+      if (e.target.id === "modal") e.target.classList.remove("open");
+    });
+
+    // ====== 4. Interactive 4-Step Journey ======
+    const stepsData = [
+      {
+        tag: "01 · BASE ACADÊMICA",
+        title: "Instituto Salmus de Ensino — ADS",
+        text: "Construindo pensamento computacional sólido: algoritmos, estrutura de dados em C e Programação Orientada a Objetos.",
+        tiles: [
+          { title: "Linguagem C", desc: "Lógica, ponteiros, cálculos e TDEs." },
+          { title: "POO Aplicada", desc: "Classes, herança e polimorfismo em Java/C#." },
+          { title: "Trabalhos TDE & PIE", desc: "Projetos integradores com foco prático." },
+          { title: "Comunicação", desc: "Italiano, Português e Inglês técnico." }
+        ],
+        ctaText: "Ver projetos em C →",
+        filter: "C"
+      },
+      {
+        tag: "02 · STACK BACK-END",
+        title: "Sistemas robustos & Banco de Dados",
+        text: "Desenvolvimento de aplicações CRUD, regras de negócio, autenticação segura e modelagem relacional com MySQL.",
+        tiles: [
+          { title: "C# & .NET", desc: "Sistema Cadastro, Biblioteca e POO." },
+          { title: "Java", desc: "Base orientada a objetos no IntelliJ IDEA." },
+          { title: "PHP & Laravel", desc: "Autenticação e frameworks web." },
+          { title: "MySQL", desc: "Consultas, tabelas relacionais e persistência." }
+        ],
+        ctaText: "Ver projetos em C# →",
+        filter: "C#"
+      },
+      {
+        tag: "03 · PRÁTICA EM WEB",
+        title: "Interfaces limpas & Projetos Reais",
+        text: "Experiência criando desde sites institucionais para a comunidade local até jogos interativos no navegador.",
+        tiles: [
+          { title: "Laravel Blade", desc: "Site da Associação de Artesãos de Caxias." },
+          { title: "HTML5 & CSS3", desc: "Layouts responsivos e organizados." },
+          { title: "JavaScript", desc: "Lógica de DOM no Pokémon Memory Game." },
+          { title: "UX Prático", desc: "Foco em clareza para o usuário final." }
+        ],
+        ctaText: "Ver projetos Web →",
+        filter: "Laravel"
+      },
+      {
+        tag: "04 · EVOLUÇÃO",
+        title: "Pronto para crescer no seu time",
+        text: "Busco minha oportunidade de estágio para aprender com devs mais experientes, colaborar em sprints e entregar valor real.",
+        tiles: [
+          { title: "Git & GitHub", desc: "Versionamento diário (Pull Shark & Quickdraw)." },
+          { title: "Docker & Composer", desc: "Padronização de ambientes e pacotes." },
+          { title: "IDEs Profissionais", desc: "IntelliJ, Visual Studio e VS Code." },
+          { title: "Disponibilidade", desc: "Presencial em Caxias-MA ou 100% remoto." }
+        ],
+        ctaText: "Ir para o Simulador →",
+        filter: "all"
       }
+    ];
 
-      const cmdLine = document.createElement("div");
-      cmdLine.className = "term-line term-cmd";
-      cmdLine.textContent = `$ ${cmd}`;
-      termBody.appendChild(cmdLine);
-
-      const outLine = document.createElement("div");
-      outLine.className = "term-line term-out";
-      outLine.textContent = commands[cmd]
-        ? commands[cmd]()
-        : `Comando '${cmd}' não encontrado. Digite 'help' para ver as opções.`;
-      termBody.appendChild(outLine);
-      termBody.scrollTop = termBody.scrollHeight;
+    function renderStep(idx) {
+      const s = stepsData[idx];
+      const box = document.getElementById("stepPreview");
+      box.innerHTML = `
+        <div>
+          <span class="eyebrow">${s.tag}</span>
+          <h3 style="font-size:1.3rem; margin-bottom:0.5rem;">${s.title}</h3>
+          <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem;">${s.text}</p>
+          <div class="step-preview-items">
+            ${s.tiles.map(t => `<div class="preview-tile"><strong>${t.title}</strong><span>${t.desc}</span></div>`).join("")}
+          </div>
+        </div>
+        <div>
+          <button class="btn-accent" onclick="${idx === 3 ? "document.getElementById('entrevista').scrollIntoView({behavior:'smooth'})" : `scrollToFilter('${s.filter}')`}">${s.ctaText}</button>
+        </div>
+      `;
     }
 
-    document.getElementById("terminalForm").addEventListener("submit", (e) => {
+    document.querySelectorAll(".step-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".step-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderStep(Number(btn.dataset.step));
+      });
+    });
+    renderStep(0);
+
+    // ====== 5. Interview Simulator ======
+    const qaList = [
+      {
+        q: "Por que você escolheu Análise e Desenvolvimento de Sistemas?",
+        a: "Sou italiano e vim estudar no Brasil buscando unir minha paixão por tecnologia com uma formação prática. Escolhi ADS no Instituto Salmus porque quero construir software desde os primeiros semestres, combinando lógica em C, POO em Java/C# e projetos web reais."
+      },
+      {
+        q: "Qual projeto no seu GitHub você mais recomenda olhar?",
+        a: "Recomendo três: o site da Associação de Artesãos de Caxias (em Laravel/Blade, com impacto real na comunidade), o Framework Users Login (autenticação em PHP/MySQL) e o Sistema de Cadastro em C#, que mostra minha base em POO."
+      },
+      {
+        q: "Como é seu domínio atual de Back-end e Banco de Dados?",
+        a: "Tenho foco forte em Back-end e lógica: já implementei CRUDs em C#, sistemas de login com PHP/Laravel e modelagem relacional com MySQL, usando Docker e Composer para manter o ambiente organizado."
+      },
+      {
+        q: "Qual sua disponibilidade para estágio?",
+        a: "Estou 100% aberto a oportunidades de estágio em desenvolvimento (Back-end, Web ou Full-stack), seja presencial em Caxias-MA ou remoto. Tenho muita facilidade para aprender ferramentas novas e trabalhar em equipe!"
+      }
+    ];
+
+    function renderQA(idx) {
+      const item = qaList[idx];
+      document.getElementById("simBody").innerHTML = `
+        <div class="sim-bubble recruiter"><strong>Recrutador:</strong> ${item.q}</div>
+        <div class="sim-bubble isac"><strong>Isac Ghilardi:</strong> ${item.a}</div>
+      `;
+    }
+
+    document.querySelectorAll(".sim-q-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".sim-q-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderQA(Number(btn.dataset.q));
+      });
+    });
+    renderQA(0);
+
+    // ====== 6. Terminal ======
+    const termOut = document.getElementById("termOutput");
+    const termInput = document.getElementById("termInput");
+
+    const termMap = {
+      help: "Comandos disponíveis:\n  skills    -> Linguagens e ferramentas\n  roadmap   -> Minha trilha atual em ADS\n  projects  -> Repositórios em destaque\n  hire      -> Como me contratar para estágio\n  clear     -> Limpar tela",
+      skills: "Back-end: Java, C#, C, PHP, Laravel\nFront-end: HTML5, CSS3, JavaScript, Blade\nDados & Infra: MySQL, Docker, Composer, Git\nIDEs: IntelliJ IDEA, Visual Studio, VS Code",
+      roadmap: "[✓] Lógica & C  ->  [✓] POO (Java/C#)  ->  [✓] Web & Laravel  ->  [▶] Estágio em Dev",
+      projects: "• ASSOCIA-O-DE-ARTES-OS-DE-CAXIAS (Blade/Laravel)\n• Pokemon-Memory-Card-Game (JS/CSS)\n• Framework-cadastro-de-usuarios (PHP/MySQL)\n• Sistema_Cadastro (C#)\n• Calculadora-de-Equa-es (C)",
+      hire: "📬 E-mail: isacghilardi@gmail.com\n💼 LinkedIn: linkedin.com/in/isac-ghilardi-858285266\n🐙 GitHub: github.com/isacGhilardi"
+    };
+
+    function execCmd(raw) {
+      const cmd = raw.trim().toLowerCase().replace(/^>/, "");
+      if (!cmd) return;
+      if (cmd === "clear") {
+        termOut.textContent = "";
+        return;
+      }
+      const res = termMap[cmd] || `Comando '${cmd}' não reconhecido. Digite 'help'.`;
+      termOut.innerHTML += `\n<span style="color:#4ade80;">$ ${cmd}</span>\n${res}\n`;
+      termOut.scrollTop = termOut.scrollHeight;
+    }
+
+    document.getElementById("termForm").addEventListener("submit", (e) => {
       e.preventDefault();
-      runCommand(termInput.value);
+      execCmd(termInput.value);
       termInput.value = "";
     });
 
-    document.querySelectorAll(".quick-chip").forEach(chip => {
-      chip.addEventListener("click", () => runCommand(chip.dataset.cmd));
+    document.querySelectorAll(".term-cmd-btn").forEach(btn => {
+      btn.addEventListener("click", () => execCmd(btn.dataset.cmd));
     });
 
-    // ====== 6. Theme & Language Toggles + Toast + Contact ======
+    // ====== 7. Live GitHub Sync ======
+    async function syncGitHub(manual = false) {
+      const status = document.getElementById("ghSyncStatus");
+      try {
+        const [uRes, rRes] = await Promise.all([
+          fetch("https://api.github.com/users/isacGhilardi"),
+          fetch("https://api.github.com/users/isacGhilardi/repos?sort=updated&per_page=30")
+        ]);
+        if (!uRes.ok || !rRes.ok) throw new Error("Limit");
+        const u = await uRes.json();
+        const r = await rRes.json();
+
+        document.getElementById("statRepos").textContent = u.public_repos ?? 26;
+        document.getElementById("bigRepos").textContent = `+${u.public_repos ?? 26}`;
+        document.getElementById("statFollowers").textContent = u.followers ?? 11;
+        if (u.avatar_url) document.getElementById("ghAvatar").src = u.avatar_url;
+
+        const stars = r.reduce((sum, item) => sum + (item.stargazers_count || 0), 0);
+        document.getElementById("statStars").textContent = stars;
+
+        const merged = r
+          .filter(repo => repo.name.toLowerCase() !== "isacghilardi")
+          .map(repo => {
+            const c = curatedProjects.find(cp => cp.name.toLowerCase() === repo.name.toLowerCase());
+            return {
+              name: repo.name,
+              title: c ? c.title : repo.name.replace(/[-_]/g, " "),
+              language: c ? c.language : (repo.language || "Code"),
+              category: c ? c.category : detectCategory(repo.language),
+              stars: repo.stargazers_count,
+              forks: repo.forks_count,
+              description: repo.description || (c ? c.description : "Repositório público no GitHub de @isacGhilardi."),
+              url: repo.html_url
+            };
+          });
+
+        if (merged.length) {
+          projects = merged;
+          renderProjects();
+        }
+        status.textContent = "✅ Sincronizado ao vivo com a API do GitHub.";
+        if (manual) showToast("GitHub atualizado com sucesso!");
+      } catch {
+        status.textContent = "📦 Exibindo dados em cache de @isacGhilardi.";
+        if (manual) showToast("Usando cache local (limite da API).");
+      }
+    }
+
+    syncGitHub(false);
+    document.getElementById("syncBtn").addEventListener("click", () => syncGitHub(true));
+
+    // ====== 8. Theme & Toast ======
     const themeBtn = document.getElementById("themeToggle");
     const savedTheme = localStorage.getItem("theme") || "dark";
     document.documentElement.setAttribute("data-theme", savedTheme);
     themeBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
 
     themeBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("theme", next);
       themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
-    });
-
-    // Simple PT/EN i18n
-    const dict = {
-      en: {
-        nav_about: "About",
-        nav_skills: "Tech Stack",
-        nav_projects: "Projects",
-        nav_contact: "Contact",
-        hero_badge: "Open to Software Development Internships",
-        hero_hi: "Hi, I'm",
-        hero_desc: "Italian 🇮🇹 studying Systems Analysis & Development in Brazil 🇧🇷 (Instituto Salmus de Ensino). I build practical applications focused on Back-end, Web, and OOP.",
-        cta_projects: "View Projects",
-        cta_copy: "Copy Email",
-        stat_repos: "Repositories",
-        stat_followers: "Followers",
-        about_tag: "01 // About me",
-        about_title: "About & Interactive Terminal",
-        about_card_title: "From Italy to Tech in Brazil",
-        about_card_text: "I'm a CS/ADS student passionate about solving real problems with clean code. My projects range from C# CRUD systems and Laravel/PHP web apps to interactive JavaScript games and C algorithms.",
-        li_edu: "Education:",
-        li_goal: "Goal:",
-        li_goal_val: "Internship opportunity to grow within a team and ship impactful software.",
-        li_lang: "Languages:",
-        skills_tag: "02 // Tech Stack",
-        skills_title: "Languages & Tools",
-        proj_tag: "03 // GitHub Portfolio",
-        proj_title: "Featured Projects",
-        btn_sync: "Sync GitHub",
-        contact_tag: "04 // Let's talk",
-        contact_title: "Get in Touch",
-        contact_sub: "Open to internships & collaborations",
-        contact_desc: "If you're looking for a dedicated, curious student with solid foundations in OOP, back-end, and web development, let's connect!",
-        form_name: "Your name",
-        form_email: "Your email",
-        form_msg: "Message",
-        form_send: "Send Message ✉️"
-      }
-    };
-
-    const originalPT = {};
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      originalPT[el.dataset.i18n] = el.textContent;
-    });
-
-    let currentLang = "pt";
-    const langBtn = document.getElementById("langToggle");
-    langBtn.addEventListener("click", () => {
-      currentLang = currentLang === "pt" ? "en" : "pt";
-      langBtn.textContent = currentLang === "pt" ? "🌐 PT" : "🌐 EN";
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.dataset.i18n;
-        el.textContent = currentLang === "en" ? (dict.en[key] || originalPT[key]) : originalPT[key];
-      });
     });
 
     function showToast(msg) {
       const t = document.getElementById("toast");
       t.textContent = msg;
       t.classList.add("show");
-      setTimeout(() => t.classList.remove("show"), 2600);
+      setTimeout(() => t.classList.remove("show"), 2500);
     }
 
     document.getElementById("copyEmailBtn").addEventListener("click", async () => {
@@ -1572,18 +1866,6 @@
       } catch {
         showToast("E-mail: isacghilardi@gmail.com");
       }
-    });
-
-    document.getElementById("contactForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("cName").value;
-      const email = document.getElementById("cEmail").value;
-      const msg = document.getElementById("cMsg").value;
-      const subject = encodeURIComponent(`Contato via Portfólio - ${name}`);
-      const body = encodeURIComponent(`De: ${name} (${email})\n\n${msg}`);
-      window.location.href = `mailto:isacghilardi@gmail.com?subject=${subject}&body=${body}`;
-      showToast("Abrindo seu cliente de e-mail...");
-      e.target.reset();
     });
   </script>
 </body>
